@@ -2,14 +2,14 @@
 class Stripe < Formula
   desc "Stripe CLI utility"
   homepage "https://stripe.com"
-  version "0.2.2"
+  version "0.2.3"
 
   if OS.mac?
-    url "https://github.com/stripe/stripe-cli/releases/download/v0.2.2/stripe_0.2.2_mac-os_x86_64.tar.gz"
-    sha256 "b5f7dbcd037923e03571887331768cf7b7a3a2c84a09790bedab9f48d9b3e6bf"
+    url "https://github.com/stripe/stripe-cli/releases/download/v0.2.3/stripe_0.2.3_mac-os_x86_64.tar.gz"
+    sha256 "aff0e3796497cc55ab07a4df23c9fb906d6a3df1b2a72aa98c5eff96d2d59177"
   elsif OS.linux?
-    url "https://github.com/stripe/stripe-cli/releases/download/v0.2.2/stripe_0.2.2_linux_x86_64.tar.gz"
-    sha256 "6701362bd788e0dcb0b3571b028e12733d3cc17642950e8f11fd3f4a19cf708f"
+    url "https://github.com/stripe/stripe-cli/releases/download/v0.2.3/stripe_0.2.3_linux_x86_64.tar.gz"
+    sha256 "dccb177eed9c659cf319b5a37239ba1af4b67e1cffe0f5eed14e887b9d542d47"
   end
 
   def install
