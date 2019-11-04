@@ -2,23 +2,23 @@
 class Stripe < Formula
   desc "Stripe CLI utility"
   homepage "https://stripe.com"
-  version "1.0.0"
+  version "1.0.1"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/stripe/stripe-cli/releases/download/v1.0.0/stripe_1.0.0_mac-os_x86_64.tar.gz"
-    sha256 "5050ae1b4944f0046124050ee0db7b1bb5c8e2ad99c7c449ff27bc80de866f95"
+    url "https://github.com/stripe/stripe-cli/releases/download/v1.0.1/stripe_1.0.1_mac-os_x86_64.tar.gz"
+    sha256 "ad2f6d3a82ede5243bb9c37f52a68aaa6e4f044efe8533719d10555e2b083af7"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/stripe/stripe-cli/releases/download/v1.0.0/stripe_1.0.0_linux_x86_64.tar.gz"
-      sha256 "e1585b4a4b8d848c8bfbb0a287fd9792c02a7038da66eab41bc7a49e93080d4e"
+      url "https://github.com/stripe/stripe-cli/releases/download/v1.0.1/stripe_1.0.1_linux_x86_64.tar.gz"
+      sha256 "24797f9e3b51a390820a3b4e3cf01e4feadf914a9f653658d09ce82f2f9e3aa5"
     end
   end
 
   def install
     bin.install "stripe"
     rm Dir["#{bin}/{stripe-completion.bash,stripe-completion.zsh}"]
-    system bin/"stripe", "completion"
+    system bin/"stripe", "completion", "--shell", "bash"
     system bin/"stripe", "completion", "--shell", "zsh"
     bash_completion.install "stripe-completion.bash"
     zsh_completion.install "stripe-completion.zsh"
