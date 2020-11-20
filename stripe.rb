@@ -2,16 +2,16 @@
 class Stripe < Formula
   desc "Stripe CLI utility"
   homepage "https://stripe.com"
-  version "1.5.4"
+  version "1.5.5"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/stripe/stripe-cli/releases/download/v1.5.4/stripe_1.5.4_mac-os_x86_64.tar.gz"
-    sha256 "726d5aaa0fe45c8dd8481ad0fff4c8317c03b78ddffa9c1f8e0caa7b17e74bc9"
+    url "https://github.com/stripe/stripe-cli/releases/download/v1.5.5/stripe_1.5.5_mac-os_x86_64.tar.gz"
+    sha256 "2030b4e28ec760b8b1a9337c53ec514ab807e15897f1d0f3fb259136d35de53b"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/stripe/stripe-cli/releases/download/v1.5.4/stripe_1.5.4_linux_x86_64.tar.gz"
-      sha256 "b54d581584e6d7c328663052f40dcd2a991fdb35d3c397a40f59e78f4edd70e2"
+      url "https://github.com/stripe/stripe-cli/releases/download/v1.5.5/stripe_1.5.5_linux_x86_64.tar.gz"
+      sha256 "92cb3b72e2d2d86ed9fce281461eff58d21c556f743299618f77a5c13859e8a3"
     end
   end
 
