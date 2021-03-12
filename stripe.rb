@@ -10,7 +10,7 @@ class Stripe < Formula
 
   if OS.mac? && Hardware::CPU.intel?
     url "https://github.com/stripe/stripe-cli/releases/download/v1.5.10/stripe_1.5.10_mac-os_x86_64.tar.gz"
-    sha256 "4ce719a7e443980412b938fbf8cbb9d173f83eed0d41caec988b2c7f592352ea"
+    sha256 "8942c64191f0ca72fb9de05db3c7e7be8b87a78beef07db4d32d63d095cd11bd"
   end
 
   def install
