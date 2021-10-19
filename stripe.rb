@@ -6,7 +6,6 @@ class Stripe < Formula
   desc "Stripe CLI utility"
   homepage "https://stripe.com"
   version "1.7.4"
-  bottle :unneeded
   depends_on :macos
 
   on_macos do
