@@ -5,13 +5,13 @@
 class Stripe < Formula
   desc "Stripe CLI utility"
   homepage "https://stripe.com"
-  version "1.8.3"
+  version "1.8.4"
   depends_on :macos
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/stripe/stripe-cli/releases/download/v1.8.3/stripe_1.8.3_mac-os_arm64.tar.gz"
-      sha256 "08d9982e470c7bc894abd6e3b17e97f3c1d251a70ca7f62962f1557395b88c30"
+      url "https://github.com/stripe/stripe-cli/releases/download/v1.8.4/stripe_1.8.4_mac-os_arm64.tar.gz"
+      sha256 "fba9282e8e75f998843e3b5fa96a4fc1fafa74e3fe18771984b6540340ed4684"
 
       def install
         bin.install "stripe"
@@ -31,8 +31,8 @@ class Stripe < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/stripe/stripe-cli/releases/download/v1.8.3/stripe_1.8.3_mac-os_x86_64.tar.gz"
-      sha256 "5f056a456bb098c2848fcc026184c8b3f23ce03887a481793cf4f05fa1dbe9d0"
+      url "https://github.com/stripe/stripe-cli/releases/download/v1.8.4/stripe_1.8.4_mac-os_x86_64.tar.gz"
+      sha256 "5c2795360c80dcdaba44da9eb885766485ea62ae7ab01e21d34d6734ce461877"
 
       def install
         bin.install "stripe"
