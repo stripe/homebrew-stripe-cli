@@ -5,56 +5,55 @@
 class Stripe < Formula
   desc "Stripe CLI utility"
   homepage "https://stripe.com"
-  version "1.23.6"
+  version "1.23.7"
   depends_on :macos
 
-  on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/stripe/stripe-cli/releases/download/v1.23.6/stripe_1.23.6_mac-os_arm64.tar.gz"
-      sha256 "875a47200e91928859be9e58425e4404059a71554e536783e12b6bba9db5d3b3"
+  if Hardware::CPU.intel?
+    url "https://github.com/stripe/stripe-cli/releases/download/v1.23.7/stripe_1.23.7_mac-os_x86_64.tar.gz"
+    sha256 "03100283cd7d2acd22cad17d8c64d228b564754263925a5197c0e34cdc99e632"
 
-      def install
-        bin.install "stripe"
-        rm Dir["#{bin}/{stripe-completion.bash,stripe-completion.zsh}"]
-        system bin/"stripe", "completion", "--shell", "bash"
-        system bin/"stripe", "completion", "--shell", "zsh"
-        bash_completion.install "stripe-completion.bash"
-        zsh_completion.install "stripe-completion.zsh"
-        (zsh_completion/"_stripe").write <<~EOS
-          #compdef stripe
-          _stripe () {
-            local e
-            e=$(dirname ${funcsourcetrace[1]%:*})/stripe-completion.zsh
-            if [[ -f $e ]]; then source $e; fi
-          }
-        EOS
-      end
+    def install
+      bin.install "stripe"
+      rm Dir["#{bin}/{stripe-completion.bash,stripe-completion.zsh}"]
+      system bin/"stripe", "completion", "--shell", "bash"
+      system bin/"stripe", "completion", "--shell", "zsh"
+      bash_completion.install "stripe-completion.bash"
+      zsh_completion.install "stripe-completion.zsh"
+      (zsh_completion/"_stripe").write <<~EOS
+        #compdef stripe
+        _stripe () {
+          local e
+          e=$(dirname ${funcsourcetrace[1]%:*})/stripe-completion.zsh
+          if [[ -f $e ]]; then source $e; fi
+        }
+      EOS
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/stripe/stripe-cli/releases/download/v1.23.6/stripe_1.23.6_mac-os_x86_64.tar.gz"
-      sha256 "698ef1e125029ed888a59bf331b912dcd2d1dcfb23e78c2e16115f995313b722"
+  end
+  if Hardware::CPU.arm?
+    url "https://github.com/stripe/stripe-cli/releases/download/v1.23.7/stripe_1.23.7_mac-os_arm64.tar.gz"
+    sha256 "fec71c8e1d12d0592ac61dbbee80568598381f547f76c32472239f758c02e6d4"
 
-      def install
-        bin.install "stripe"
-        rm Dir["#{bin}/{stripe-completion.bash,stripe-completion.zsh}"]
-        system bin/"stripe", "completion", "--shell", "bash"
-        system bin/"stripe", "completion", "--shell", "zsh"
-        bash_completion.install "stripe-completion.bash"
-        zsh_completion.install "stripe-completion.zsh"
-        (zsh_completion/"_stripe").write <<~EOS
-          #compdef stripe
-          _stripe () {
-            local e
-            e=$(dirname ${funcsourcetrace[1]%:*})/stripe-completion.zsh
-            if [[ -f $e ]]; then source $e; fi
-          }
-        EOS
-      end
+    def install
+      bin.install "stripe"
+      rm Dir["#{bin}/{stripe-completion.bash,stripe-completion.zsh}"]
+      system bin/"stripe", "completion", "--shell", "bash"
+      system bin/"stripe", "completion", "--shell", "zsh"
+      bash_completion.install "stripe-completion.bash"
+      zsh_completion.install "stripe-completion.zsh"
+      (zsh_completion/"_stripe").write <<~EOS
+        #compdef stripe
+        _stripe () {
+          local e
+          e=$(dirname ${funcsourcetrace[1]%:*})/stripe-completion.zsh
+          if [[ -f $e ]]; then source $e; fi
+        }
+      EOS
     end
   end
 
-  def caveats; <<~EOS
-    ❤ Thanks for installing the Stripe CLI! If this is your first time using the CLI, be sure to run `stripe login` first.
-  EOS
+  def caveats
+    <<~EOS
+      ❤ Thanks for installing the Stripe CLI! If this is your first time using the CLI, be sure to run `stripe login` first.
+    EOS
   end
 end
