@@ -5,20 +5,22 @@
 class Stripe < Formula
   desc "Stripe CLI utility"
   homepage "https://stripe.com"
-  version "1.40.5"
+  version "1.40.6"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/stripe/stripe-cli/releases/download/v1.40.5/stripe_1.40.5_mac-os_x86_64.tar.gz"
-    sha256 "bfc98fa98d706efd1b2661dab29cb00885bfc4629b9337f0234f222d1f9c72c8"
+    url "https://github.com/stripe/stripe-cli/releases/download/v1.40.6/stripe_1.40.6_mac-os_x86_64.tar.gz"
+    sha256 "fe7b2c7d1dc5c2302fa4074004b14ca6e4b854f36d214b77262db7c8af7b3015"
 
     define_method(:install) do
       bin.install "stripe"
-      rm Dir["#{bin}/{stripe-completion.bash,stripe-completion.zsh}"]
+      rm Dir["#{bin}/{stripe-completion.bash,stripe-completion.zsh,stripe.fish}"]
       system bin/"stripe", "completion", "--shell", "bash"
       system bin/"stripe", "completion", "--shell", "zsh"
+      system bin/"stripe", "completion", "--shell", "fish"
       bash_completion.install "stripe-completion.bash"
       zsh_completion.install "stripe-completion.zsh"
+      fish_completion.install "stripe.fish"
       (zsh_completion/"_stripe").write <<~EOS
         #compdef stripe
         _stripe () {
@@ -30,16 +32,18 @@ class Stripe < Formula
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/stripe/stripe-cli/releases/download/v1.40.5/stripe_1.40.5_mac-os_arm64.tar.gz"
-    sha256 "6038a415361237c3bc8143ac72d989383c3a10e08fff20041cf97663594feb26"
+    url "https://github.com/stripe/stripe-cli/releases/download/v1.40.6/stripe_1.40.6_mac-os_arm64.tar.gz"
+    sha256 "2e0414ffee1d77af9956b2b5356aa001b410e61b3d9d8dd8892c992f5675b6d3"
 
     define_method(:install) do
       bin.install "stripe"
-      rm Dir["#{bin}/{stripe-completion.bash,stripe-completion.zsh}"]
+      rm Dir["#{bin}/{stripe-completion.bash,stripe-completion.zsh,stripe.fish}"]
       system bin/"stripe", "completion", "--shell", "bash"
       system bin/"stripe", "completion", "--shell", "zsh"
+      system bin/"stripe", "completion", "--shell", "fish"
       bash_completion.install "stripe-completion.bash"
       zsh_completion.install "stripe-completion.zsh"
+      fish_completion.install "stripe.fish"
       (zsh_completion/"_stripe").write <<~EOS
         #compdef stripe
         _stripe () {
