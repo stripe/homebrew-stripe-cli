@@ -5,12 +5,12 @@
 class Stripe < Formula
   desc "Stripe CLI utility"
   homepage "https://stripe.com"
-  version "1.50.10"
+  version "1.50.11"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/stripe/stripe-cli/releases/download/v1.50.10/stripe_1.50.10_mac-os_x86_64.tar.gz"
-    sha256 "0d5816ccb3453eae720631a6ec61012eed858ae5592372198842a5824a4414fd"
+    url "https://github.com/stripe/stripe-cli/releases/download/v1.50.11/stripe_1.50.11_mac-os_x86_64.tar.gz"
+    sha256 "b534ae1cde5c4b3b67874e5b8cdade3ce52b3af56d653fae37684f480a0427f8"
 
     define_method(:install) do
       bin.install "stripe"
@@ -32,8 +32,8 @@ class Stripe < Formula
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/stripe/stripe-cli/releases/download/v1.50.10/stripe_1.50.10_mac-os_arm64.tar.gz"
-    sha256 "29f7d7ead27625a04bd860aceb5fbdbee93a30b8c5338deba2952a821ac1b8fe"
+    url "https://github.com/stripe/stripe-cli/releases/download/v1.50.11/stripe_1.50.11_mac-os_arm64.tar.gz"
+    sha256 "4de3a0e34e513f1ff728dbb9136874814a0fe0039fa3246a190016cacd4f4792"
 
     define_method(:install) do
       bin.install "stripe"
@@ -58,6 +58,10 @@ class Stripe < Formula
   def caveats
     <<~EOS
       ❤ Thanks for installing the Stripe CLI! If this is your first time using the CLI, be sure to run `stripe login` first.
+
+      Uninstalling: Homebrew preserves your Stripe CLI plugins and configuration when it
+      removes the stripe binary. To remove plugins too, run `stripe plugin uninstall --all`
+      before `brew uninstall stripe`, while the stripe binary is still available.
     EOS
   end
 end
